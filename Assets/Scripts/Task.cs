@@ -1,20 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class Task : MonoBehaviour
 {
     [SerializeField] private string taskName;
     [SerializeField] private string description;
-    [SerializeField] private Vector2 location;
+    [SerializeField] private Vector2 position;
     [SerializeField] private float range;
     [SerializeField] private bool isCompleted;
 
     public string TaskName => taskName;
     public string Description => description;
+
+    public float Range => range;
+    public Vector2 Position => position;
     public bool IsCompleted => isCompleted;
 
-    public virtual void Use()
+    private void Start()
+    {
+        position = transform.position;
+    }
+    public void Use()
     {
         Debug.Log($"Task {taskName} is being used.");
     }
@@ -50,7 +59,7 @@ public class Task : MonoBehaviour
         {
             Debug.Log($"Task {taskName} is already completed.");
         }
-        else if (Vector2.Distance(playerPosition, location) <= range)
+        else if (Vector2.Distance(playerPosition, position) <= range)
         {
             Debug.Log($"Task {taskName} is within range but not completed yet.");
         }
@@ -60,3 +69,4 @@ public class Task : MonoBehaviour
         }
     }
 }
+
