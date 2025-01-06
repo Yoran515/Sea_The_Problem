@@ -23,7 +23,7 @@ public class Task : MonoBehaviour
     {
         position = transform.position;
     }
-    public void Use()
+    public virtual void Use()
     {
         Debug.Log($"Task {taskName} is being used.");
     }
