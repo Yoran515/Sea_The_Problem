@@ -24,7 +24,11 @@ public class TaskHandler : MonoBehaviour
             {
                 if (distance <= task.Range)
                 {
-                    if (Input.GetKeyDown(KeyCode.E)) task.Use();
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        task.Use();
+
+                    }
                 }
             }
 

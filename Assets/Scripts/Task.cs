@@ -25,7 +25,7 @@ public class Task : MonoBehaviour
     }
     public virtual void Use()
     {
-        Debug.Log($"Task {taskName} is being used.");
+        Debug.Log($"Task {taskName} has been used.");
     }
 
     public void Complete()

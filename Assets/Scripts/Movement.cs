@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Movement : MonoBehaviour
 {
     public float moveSpeed = 5f; 
     public Rigidbody2D rb;     
-    public Animator animator; 
-    
+    public Animator animator;
     private Vector2 movement;
 
     private bool IsUp;
@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
     private bool IsRight;
     void Update()
     {
+    
 
         movement = Vector2.zero;
   
@@ -27,6 +28,7 @@ public class Movement : MonoBehaviour
             IsDown =false; 
             IsLeft = false; 
             IsRight = false;
+          
         }
         else if (Input.GetKey(KeyCode.S))
         {
@@ -35,6 +37,7 @@ public class Movement : MonoBehaviour
             IsDown = true;
             IsLeft = false;
             IsRight = false;
+          
         }
         else if (Input.GetKey(KeyCode.D))
         {
@@ -43,6 +46,7 @@ public class Movement : MonoBehaviour
             IsDown = false;
             IsLeft = false;
             IsRight = true;
+           
         }
         else if (Input.GetKey(KeyCode.A))
         {
@@ -51,6 +55,7 @@ public class Movement : MonoBehaviour
             IsDown = false;
             IsLeft = true;
             IsRight = false;
+          
         }
 
         animator.SetFloat("MoveX", movement.x);
